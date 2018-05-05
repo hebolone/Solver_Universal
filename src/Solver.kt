@@ -19,9 +19,7 @@ fun main(args : Array<String>) {
         AddMenu("1", "Problem 1", problems::Problem_1)
         AddMenu("2", "Problem 2", { (problems::Problem_2)(1, 100) })
         AddMenu("3", "Problem 3", problems::Problem_3)
-        AddMenu(mnuSettings)
-        AddMenu(mnuShowSteps)
-        AddMenu(mnuShowDateTime)
+        AddMenu(listOf(mnuSettings, mnuShowSteps, mnuShowDateTime))
         Interpreter()
     }
 }
