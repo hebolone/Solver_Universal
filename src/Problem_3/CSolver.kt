@@ -6,7 +6,7 @@ class CSolver(iMIN : Int, iMAX : Int) : CMainSolver() {
     private var container = (iMIN..iMAX).toMutableList()
     fun Solve() {
         var step = 1
-        while(container.count() != 1) {
+        while(container.size != 1) {
             step ++
             var delete = true
             val iterator = container.iterator()
@@ -20,7 +20,7 @@ class CSolver(iMIN : Int, iMAX : Int) : CMainSolver() {
             //  At the end I will print steps
             //  Prepare output message
             if(GetStepsVisible())
-                LaunchOnMessage("Step $step (${container.count()} elements) = ${container.joinToString(separator = ",")}")
+                LaunchOnMessage("Step $step (${container.size} elements) = ${container.joinToString(separator = ",")}")
             container.reverse()
         }
         LaunchOnMessage("Final result: ${container.first()} after $step steps.")

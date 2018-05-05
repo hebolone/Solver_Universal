@@ -2,7 +2,7 @@ import MenuManager.*
 
 fun main(args : Array<String>) {
     val mm = MenuManager("SIMO SOLVER")
-    val solvers = CProblems()
+    val problems = CProblems()
     val mnuSettings = CMenu("s", "Settings", {})
     val mnuShowSteps = CMenuVar<Boolean>("s", "Show all steps (when possible)", {
         Options.ShowAllSteps = ! Options.ShowAllSteps
@@ -15,11 +15,13 @@ fun main(args : Array<String>) {
         return@CMenuVar Options.ShowDateTime
     }, mnuSettings)
 
-    mm.AddMenu("1", "Problem 1", solvers::Problem_1)
-    mm.AddMenu("2", "Problem 2", solvers::Problem_2)
-    mm.AddMenu("3", "Problem 3", solvers::Problem_3)
-    mm.AddMenu(mnuSettings)
-    mm.AddMenu(mnuShowSteps)
-    mm.AddMenu(mnuShowDateTime)
-    mm.Interpreter()
+    mm.run {
+        AddMenu("1", "Problem 1", problems::Problem_1)
+        AddMenu("2", "Problem 2", { (problems::Problem_2)(1, 100) })
+        AddMenu("3", "Problem 3", problems::Problem_3)
+        AddMenu(mnuSettings)
+        AddMenu(mnuShowSteps)
+        AddMenu(mnuShowDateTime)
+        Interpreter()
+    }
 }

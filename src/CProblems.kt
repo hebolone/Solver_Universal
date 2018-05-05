@@ -9,8 +9,8 @@ class CProblems {
         solver.onMessage += { ReceiveOnMessage(it) }
         solver.Solve()
     }
-    fun Problem_2() {
-        val solver = Problem_2.CSolver(1, 100000)
+    fun Problem_2(iMin :Int, iMax : Int) {
+        val solver = Problem_2.CSolver(iMin, iMax)
         solver.onMessage += { ReceiveOnMessage(it) }
         solver.Solve()
     }

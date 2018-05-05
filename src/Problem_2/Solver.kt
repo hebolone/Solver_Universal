@@ -2,14 +2,14 @@ package Problem_2
 
 import Events.CMainSolver
 
-class CSolver(val iMIN : Int, val iMAX : Int) : CMainSolver() {
+class CSolver(val iMIN : Int = 1, val iMAX : Int = 100) : CMainSolver() {
     //  *** EVENTS ***
     //  *** MEMBERS ***
-    val excluded = intArrayOf(5, 7)
-    val MIN_COUNTDIGIT = 1
-    val MAX_COUNTDIGIT = 100
-    val numbersToSearch = intArrayOf(8)
-    val counterDigits = (MIN_COUNTDIGIT..MAX_COUNTDIGIT).sumBy { countDigit(it, numbersToSearch) }
+    private val excluded = intArrayOf(5, 7)
+    private val MIN_COUNTDIGIT = 1
+    private val MAX_COUNTDIGIT = 100
+    private val numbersToSearch = intArrayOf(8)
+    private val counterDigits = (MIN_COUNTDIGIT..MAX_COUNTDIGIT).sumBy { countDigit(it, numbersToSearch) }
     //  *** METHODS ***
     fun Solve(){
         val counter = (iMIN..iMAX).count { checkDigitPresent(it, excluded) }
