@@ -1,8 +1,8 @@
 package Events
 
-open class CMainSolver() {
+abstract class CMainSolver() {
     //  *** MEMBERS ***
-    protected val eventhandler_onMessage = EventHandler<String>()
+    private val eventhandler_onMessage = EventHandler<String>()
     val onMessage = Event(eventhandler_onMessage)
     protected var GetStepsVisible : () -> Boolean = { false }
     //  *** METHODS ***
@@ -12,4 +12,5 @@ open class CMainSolver() {
     fun SetStepsVisibleFunc(iFunc : () -> Boolean) {
         GetStepsVisible = iFunc
     }
+    abstract fun Solve()
 }

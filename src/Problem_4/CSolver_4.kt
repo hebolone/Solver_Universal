@@ -7,30 +7,28 @@ class CSolver_4(iInput : String) : CMainSolver() {
     private val m_OriginalList = mutableListOf<Int>()
     private val m_Input = iInput
     //  *** METHODS ***
-    fun Solve() {
+    override fun Solve() {
         var canContinue = false
         try {
             m_Input.split(',').toList().map { it.trim().toInt() }.forEach { m_OriginalList.add(it) }
             canContinue = true
         }
         catch(exc : Exception) {
-            println("Invalid arguments")
+            LaunchOnMessage("Invalid arguments")
         }
 
         if(!canContinue) {
             return
         }
         //  Create SubArray
-        var listOfArrays = mutableListOf<MutableList<Int>>()
-        listOfArrays.add(m_OriginalList)
+        val listOfArrays = mutableListOf(m_OriginalList)
         var currentIndex = 0
         while(!CheckSubArray(listOfArrays[currentIndex])) {
-            val subArray = CreateSubArray(listOfArrays[currentIndex])
-            listOfArrays.add(subArray)
+            listOfArrays.add(CreateSubArray(listOfArrays[currentIndex]))
             currentIndex++
         }
         if(listOfArrays.last().size == 1) {
-            println("No solution found")
+            LaunchOnMessage("No solution found")
             return
         }
         //  Go up to the first array
@@ -38,9 +36,11 @@ class CSolver_4(iInput : String) : CMainSolver() {
         listOfArrays.reversed().forEach {
             it.add(it[it.size - 1] + lastValue)
             lastValue = it.last()
+            if(GetStepsVisible())
+                LaunchOnMessage("$it")
         }
         //  Print solution
-        println("Solution ${listOfArrays.first()}")
+        LaunchOnMessage("Solution ${listOfArrays.first()}")
     }
     private fun CreateSubArray(iInput : List<Int>) : MutableList<Int> {
         val subArray = mutableListOf<Int>()

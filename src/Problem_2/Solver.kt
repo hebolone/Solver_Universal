@@ -2,7 +2,7 @@ package Problem_2
 
 import Events.CMainSolver
 
-class CSolver(val iMIN : Int = 1, val iMAX : Int = 100) : CMainSolver() {
+class CSolver(private val iMIN : Int = 1, private val iMAX : Int = 100) : CMainSolver() {
     //  *** EVENTS ***
     //  *** MEMBERS ***
     private val excluded = intArrayOf(5, 7)
@@ -11,7 +11,7 @@ class CSolver(val iMIN : Int = 1, val iMAX : Int = 100) : CMainSolver() {
     private val numbersToSearch = intArrayOf(8)
     private val counterDigits = (MIN_COUNTDIGIT..MAX_COUNTDIGIT).sumBy { countDigit(it, numbersToSearch) }
     //  *** METHODS ***
-    fun Solve(){
+    override fun Solve(){
         val counter = (iMIN..iMAX).count { checkDigitPresent(it, excluded) }
         LaunchOnMessage("Range from $iMIN to $iMAX: $counter numbers are not valid, ${iMAX - counter} are")
 

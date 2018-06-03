@@ -4,7 +4,7 @@ import Events.CMainSolver
 
 class CSolver(iMIN : Int, iMAX : Int) : CMainSolver() {
     private var container = (iMIN..iMAX).toMutableList()
-    fun Solve() {
+    override fun Solve() {
         var step = 1
         while(container.size != 1) {
             step ++

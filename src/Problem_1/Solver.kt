@@ -30,7 +30,7 @@ class CSolver (iStartingX : Int, iIterations : Int) : CMainSolver() {
         }
         return retValue
     }
-    fun Solve() {
+    override fun Solve() {
         IntArray(m_StartingX) { it }.toList().forEach {
             val s1 : List<CResultStep> = SingleStep(funcs[0], CResultStep(it, 0), 11)
             s1.forEach {
@@ -49,7 +49,7 @@ class CSolver (iStartingX : Int, iIterations : Int) : CMainSolver() {
             }
         }
     }
-    fun CalculateSingleStep(iStartingX : Int, iMultipliers : IntArray) {
+    /*fun CalculateSingleStep(iStartingX : Int, iMultipliers : IntArray) {
         var result : Int = iStartingX
         var counter = 0
         while(counter < funcs.size) {
@@ -57,5 +57,5 @@ class CSolver (iStartingX : Int, iIterations : Int) : CMainSolver() {
             counter++
         }
         LaunchOnMessage("Starting from: $iStartingX (multipliers: ${iMultipliers[0]},${iMultipliers[1]},${iMultipliers[2]}) result: $result - 10 = ${result - 10}")
-    }
+    }*/
 }

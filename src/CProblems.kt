@@ -27,6 +27,7 @@ class CProblems {
         val userInput = readLine()!!
         //  Init class
         val solver = Problem_4.CSolver_4(userInput)
+        solver.SetStepsVisibleFunc { Options.ShowAllSteps }
         solver.onMessage += { ReceiveOnMessage(it) }
         solver.Solve()
     }
