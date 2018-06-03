@@ -20,6 +20,16 @@ class CProblems {
         solver.onMessage += { ReceiveOnMessage(it) }
         solver.Solve()
     }
+    fun Problem_4() {
+        //  Ask user input
+        println("Inserisci i dati dividendoli con una virgola: 1,2,3...")
+        print(">")
+        val userInput = readLine()!!
+        //  Init class
+        val solver = Problem_4.CSolver_4(userInput)
+        solver.onMessage += { ReceiveOnMessage(it) }
+        solver.Solve()
+    }
     //---------------------------------------------------------------------------------------------
     private fun ReceiveOnMessage(iMessage : String) {
         val now = LocalDateTime.now()
