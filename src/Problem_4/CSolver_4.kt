@@ -49,7 +49,7 @@ class CSolver_4(iInput : String) : CMainSolver() {
     }
     private fun CheckSubArray(iInput : List<Int>) : Boolean {
         //  Return true if all values are the same value
-        var retValue = true
+        var retValue = iInput.size > 1
         (1..(iInput.size - 1)).forEach { if(iInput[it] != iInput[it - 1]) retValue = false }
         return retValue
     }
