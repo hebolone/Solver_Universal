@@ -31,6 +31,11 @@ class CProblems {
         solver.onMessage += { ReceiveOnMessage(it) }
         solver.Solve()
     }
+    fun Problem_5(iTries : Int) {
+        val solver = Problem_5.CSolver_5(iTries)
+        solver.SetStepsVisibleFunc { Options.ShowAllSteps }
+        solver.Solve()
+    }
     //---------------------------------------------------------------------------------------------
     private fun ReceiveOnMessage(iMessage : String) {
         val now = LocalDateTime.now()
