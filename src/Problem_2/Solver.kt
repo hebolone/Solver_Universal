@@ -22,7 +22,6 @@ class CSolver(private val iMIN : Int = 1, private val iMAX : Int = 100) : CMainS
         val strExcluded = iExcluded.map { it.toString() }
         return (1..strInput.length).count { strExcluded.contains(strInput[it - 1].toString()) } > 0
     }
-
     private fun countDigit(iNumber : Int, iIncluded : IntArray) : Int {
         val strInput = iNumber.toString()
         val strIncluded = iIncluded.map { it.toString() }
