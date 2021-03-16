@@ -1,8 +1,8 @@
 package Problem_2
 
-import Events.CMainSolver
+import Events.CSolverBase
 
-class CSolver(private val iMIN : Int = 1, private val iMAX : Int = 100) : CMainSolver() {
+class CSolver_2(private val iMIN : Int = 1, private val iMAX : Int = 100) : CSolverBase() {
     //  *** EVENTS ***
     //  *** MEMBERS ***
     private val excluded = intArrayOf(5, 7)

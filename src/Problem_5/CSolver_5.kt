@@ -1,9 +1,9 @@
 package Problem_5
 
-import Events.CMainSolver
+import Events.CSolverBase
 import java.util.*
 
-class CSolver_5(private val iTries: Int = 1000000) : CMainSolver() {
+class CSolver_5(private val iTries: Int = 1000000) : CSolverBase() {
     private val m_Random = Random()
     private val SEGMENTLENGTH = 1000
     private data class CResults(var OK : Int = 0, var KO : Int = 0)

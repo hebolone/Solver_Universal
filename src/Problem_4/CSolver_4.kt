@@ -1,8 +1,8 @@
 package Problem_4
 
-import Events.CMainSolver
+import Events.CSolverBase
 
-class CSolver_4(iInput : String) : CMainSolver() {
+class CSolver_4(iInput : String) : CSolverBase() {
     //  *** MEMBERS ***
     private val m_OriginalList = mutableListOf<Int>()
     private val m_Input = iInput

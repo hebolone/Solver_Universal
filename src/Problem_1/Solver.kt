@@ -2,7 +2,7 @@ package Problem_1
 
 import Events.*
 
-class CSolver (iStartingX : Int, iIterations : Int) : CMainSolver() {
+class CSolver_1 (iStartingX : Int, iIterations : Int) : CSolverBase() {
     //  *** DATA TYPES ***
     private data class CResultStep(val iResult : Int, val iMultiplier : Int) {
         val Result : Int = iResult

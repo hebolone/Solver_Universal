@@ -15,13 +15,15 @@ fun main(args : Array<String>) {
         return@CMenuVar Options.ShowDateTime
     }, mnuSettings)
 
+    var counter = 0
+
     mm.run {
-        AddMenu("1", "Problem 1", problems::Problem_1)
-        AddMenu("2", "Problem 2") { (problems::Problem_2)(1, 100) }
-        AddMenu("3", "Problem 3", problems::Problem_3)
-        AddMenu("4", "Problem 4", problems::Problem_4)
-        AddMenu("5", "Problem 5") { (problems::Problem_5)(10000000)}
-        AddMenu("6", "Problem 6", problems::Problem_6)
+        AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(FactoryProvider.TSolver.PROBLEM_1) }
+        AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(FactoryProvider.TSolver.PROBLEM_2) }
+        AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(FactoryProvider.TSolver.PROBLEM_3) }
+        AddMenu((++counter).toString(), "Problem $counter", problems::Problem_4)
+        AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(FactoryProvider.TSolver.PROBLEM_5) }
+        AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(FactoryProvider.TSolver.PROBLEM_6) }
         AddMenu(listOf(mnuSettings, mnuShowSteps, mnuShowDateTime))
         Interpreter()
     }

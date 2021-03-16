@@ -1,8 +1,8 @@
 package Problem_3
 
-import Events.CMainSolver
+import Events.CSolverBase
 
-class CSolver(iMIN : Int, iMAX : Int) : CMainSolver() {
+class CSolver_3(iMIN : Int, iMAX : Int) : CSolverBase() {
     private var container = (iMIN..iMAX).toMutableList()
     override fun Solve() {
         var step = 1
