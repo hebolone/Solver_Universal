@@ -2,10 +2,15 @@ package Problem_4
 
 import Events.CSolverBase
 
-class CSolver_4(iInput : String) : CSolverBase() {
+class CSolver_4() : CSolverBase() {
     //  *** MEMBERS ***
     private val m_OriginalList = mutableListOf<Int>()
-    private val m_Input = iInput
+    private var m_Input : String
+    init {
+        println("Inserisci i dati dividendoli con una virgola: 1,2,3...")
+        print(">")
+        m_Input = readLine()!!
+    }
     //  *** METHODS ***
     override fun Solve() {
         var canContinue = false

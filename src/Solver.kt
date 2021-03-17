@@ -1,6 +1,6 @@
 import MenuManager.*
 
-fun main(args : Array<String>) {
+fun main() {
     val mm = MenuManager("SIMO SOLVER")
     val problems = CProblems()
     val mnuSettings = CMenu("s", "Settings", {})
@@ -16,14 +16,19 @@ fun main(args : Array<String>) {
     }, mnuSettings)
 
     var counter = 0
+    val problemList = listOf<FactoryProvider.TSolver>(
+        FactoryProvider.TSolver.PROBLEM_1,
+        FactoryProvider.TSolver.PROBLEM_2,
+        FactoryProvider.TSolver.PROBLEM_3,
+        FactoryProvider.TSolver.PROBLEM_4,
+        FactoryProvider.TSolver.PROBLEM_5,
+        FactoryProvider.TSolver.PROBLEM_6
+    )
 
     mm.run {
-        AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(FactoryProvider.TSolver.PROBLEM_1) }
-        AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(FactoryProvider.TSolver.PROBLEM_2) }
-        AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(FactoryProvider.TSolver.PROBLEM_3) }
-        AddMenu((++counter).toString(), "Problem $counter", problems::Problem_4)
-        AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(FactoryProvider.TSolver.PROBLEM_5) }
-        AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(FactoryProvider.TSolver.PROBLEM_6) }
+        problemList.forEach {
+            AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(it) }
+        }
         AddMenu(listOf(mnuSettings, mnuShowSteps, mnuShowDateTime))
         Interpreter()
     }

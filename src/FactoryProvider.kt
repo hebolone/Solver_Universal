@@ -16,9 +16,9 @@ class FactoryProvider<out T> {
             TSolver.PROBLEM_1 -> Problem_1.CSolver_1(1000, 10)
             TSolver.PROBLEM_2 -> Problem_2.CSolver_2()
             TSolver.PROBLEM_3 -> Problem_3.CSolver_3(1, 128)
+            TSolver.PROBLEM_4 -> Problem_4.CSolver_4()
             TSolver.PROBLEM_5 -> Problem_5.CSolver_5(10000000)
             TSolver.PROBLEM_6 -> Problem_6.CSolver_6().SetOption(Options.TOption.PRINT_IN_LINE, true)
-            else -> throw Exception()
         }.SetStepsVisibleFunc { Options.ShowAllSteps }.SetOnMessage { (::ReceiveOnMessage)(it) }
     }
 }
