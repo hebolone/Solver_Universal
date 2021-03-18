@@ -46,11 +46,11 @@ class CProblems {
 //        solver.Solve()
 //    }
     //---------------------------------------------------------------------------------------------
-    private fun ReceiveOnMessage(iMessage : String) {
-        val now = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")
-        val formatted : String = if(Options.ShowDateTime) now.format(formatter) else ""
-        println("$formatted $iMessage")
-    }
+//    private fun ReceiveOnMessage(iMessage : String) {
+//        val now = LocalDateTime.now()
+//        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")
+//        val formatted : String = if(Options.ShowDateTime) now.format(formatter) else ""
+//        println("$formatted $iMessage")
+//    }
 //    private fun ReceiveOnMessageInLine(iMessage : String) = print(iMessage)
 }

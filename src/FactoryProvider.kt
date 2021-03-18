@@ -4,11 +4,17 @@ import java.time.format.DateTimeFormatter
 
 class FactoryProvider<out T> {
     enum class TSolver {
+        @Description("Soluzioni di un sistema di equazioni")
         PROBLEM_1,
+        @Description("Quanti 8 ci sono da 1 a 100")
         PROBLEM_2,
+        @Description("Elimino un numero sì e uno no più volte. Cosa rimane?")
         PROBLEM_3,
+        @Description("Risolvi sequenze")
         PROBLEM_4,
+        @Description("Bastoncino spezzato che forma un triangolo")
         PROBLEM_5,
+        @Description("Quadrati di numeri a 2 cifre meno 1 divisibili per 15")
         PROBLEM_6
     }
     companion object {
@@ -30,3 +36,8 @@ fun ReceiveOnMessage(iMessage : String) {
     val newLine = if(Options.PrintInLine) "" else System.getProperty("line.separator")
     print("$datetimeFormatted $iMessage$newLine")
 }
+
+@Target(AnnotationTarget.FIELD)
+@Retention(AnnotationRetention.RUNTIME)
+annotation class Description(val description: String)
+

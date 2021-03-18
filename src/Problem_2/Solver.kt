@@ -14,7 +14,6 @@ class CSolver_2(private val iMIN : Int = 1, private val iMAX : Int = 100) : CSol
     override fun Solve(){
         val counter = (iMIN..iMAX).count { checkDigitPresent(it, excluded) }
         LaunchOnMessage("Range from $iMIN to $iMAX: $counter numbers are not valid, ${iMAX - counter} are")
-
         LaunchOnMessage("Number ${numbersToSearch.map { it.toString() }} is present $counterDigits times from $MIN_COUNTDIGIT to $MAX_COUNTDIGIT")
     }
     private fun checkDigitPresent(iNumber : Int, iExcluded : IntArray) : Boolean {

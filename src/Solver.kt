@@ -27,9 +27,14 @@ fun main() {
 
     mm.run {
         problemList.forEach {
-            AddMenu((++counter).toString(), "Problem $counter") { (problems::ProblemSolver)(it) }
+            var description = getAnnotationValue(it)
+            AddMenu((++counter).toString(), description) { (problems::ProblemSolver)(it) }
         }
         AddMenu(listOf(mnuSettings, mnuShowSteps, mnuShowDateTime))
         Interpreter()
     }
+}
+
+fun getAnnotationValue(enum:FactoryProvider.TSolver) : String {
+    return enum.declaringClass.getField(enum.name).getAnnotation(Description::class.java).description
 }
