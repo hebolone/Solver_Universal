@@ -2,7 +2,7 @@ package Problem_4
 
 import Events.CSolverBase
 
-class CSolver_4() : CSolverBase() {
+class CSolver_4 : CSolverBase() {
     //  *** MEMBERS ***
     private val m_OriginalList = mutableListOf<Int>()
     private var m_Input : String
@@ -49,13 +49,13 @@ class CSolver_4() : CSolverBase() {
     }
     private fun CreateSubArray(iInput : List<Int>) : MutableList<Int> {
         val subArray = mutableListOf<Int>()
-        (1..(iInput.size - 1)).forEach { subArray.add(iInput[it] - iInput[it - 1]) }
+        (1 until iInput.size).forEach { subArray.add(iInput[it] - iInput[it - 1]) }
         return subArray
     }
     private fun CheckSubArray(iInput : List<Int>) : Boolean {
         //  Return true if all values are the same value
         var retValue = iInput.size > 1
-        (1..(iInput.size - 1)).forEach { if(iInput[it] != iInput[it - 1]) retValue = false }
+        (1 until iInput.size).forEach { if(iInput[it] != iInput[it - 1]) retValue = false }
         return retValue
     }
 }

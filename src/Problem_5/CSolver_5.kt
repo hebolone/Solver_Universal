@@ -20,7 +20,7 @@ class CSolver_5(private val iTries: Int = 1000000) : CSolverBase() {
             val segment_02 = array[1] - array[0]
             val segment_03 = SEGMENTLENGTH - segment_01 - segment_02
 
-            val segment_max = arrayOf(segment_01, segment_02, segment_03).max()
+            val segment_max = arrayOf(segment_01, segment_02, segment_03).maxOrNull()
             if(segment_max!! < (SEGMENTLENGTH / 2))
                 result.OK ++
             else

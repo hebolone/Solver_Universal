@@ -27,7 +27,7 @@ fun main() {
 
     mm.run {
         problemList.forEach {
-            var description = getAnnotationValue(it)
+            val description = getAnnotationValue(it)
             AddMenu((++counter).toString(), description) { (problems::ProblemSolver)(it) }
         }
         AddMenu(listOf(mnuSettings, mnuShowSteps, mnuShowDateTime))

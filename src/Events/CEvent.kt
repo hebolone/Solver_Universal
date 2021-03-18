@@ -1,6 +1,6 @@
 package Events
 
-class Event<T>(val eventHandler: EventHandler<T>) {
+class Event<T>(private val eventHandler: EventHandler<T>) {
     operator fun plusAssign(handler: (T) -> Unit) { eventHandler.handlers.add(handler) }
 }
 
