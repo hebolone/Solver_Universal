@@ -6,5 +6,5 @@ class Event<T>(private val eventHandler: EventHandler<T>) {
 
 class EventHandler<T> {
     val handlers = arrayListOf<((T) -> Unit)>()
-    operator fun invoke(value: T) { for (handler in handlers) handler(value) }
+    operator fun invoke(value: T) { handlers.forEach { it(value) } }
 }
