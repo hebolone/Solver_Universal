@@ -15,7 +15,9 @@ class FactoryProvider {
         @Description("Bastoncino spezzato che forma un triangolo")
         PROBLEM_5,
         @Description("Quadrati di numeri a 2 cifre meno 1 divisibili per 15")
-        PROBLEM_6
+        PROBLEM_6,
+        @Description("3 carte, qual è la probabilità che l'altra faccia sia rossa")
+        PROBLEM_7
     }
     companion object {
         fun getSolver(iProblem: TSolver) : ISolver = when (iProblem) {
@@ -25,6 +27,7 @@ class FactoryProvider {
             TSolver.PROBLEM_4 -> Problem_4.CSolver_4()
             TSolver.PROBLEM_5 -> Problem_5.CSolver_5(10000000)
             TSolver.PROBLEM_6 -> Problem_6.CSolver_6().SetOption(Options.TOption.PRINT_IN_LINE, true)
+            TSolver.PROBLEM_7 -> Problem_7.CSolver_7()
         }.SetStepsVisibleFunc { Options.ShowAllSteps }.SetOnMessage { (::receiveOnMessage)(it) }
     }
 }
