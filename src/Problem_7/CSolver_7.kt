@@ -11,8 +11,7 @@ class CSolver_7 : CSolverBase() {
         FRONT(0),
         BACK(1);
         companion object {
-            private val VALUES = values()
-            fun getByValue(value: Int) = VALUES.first { it.side == value }
+            fun getByValue(value: Int) = values().first { it.side == value }
         }
     }
     private val _Random = Random()
@@ -27,7 +26,8 @@ class CSolver_7 : CSolverBase() {
         val total = red + black
         return Triple(total, red.toDouble() / total.toDouble(), black.toDouble() / total.toDouble())
     }
-    fun Double.format(digits: Int) = "%.${digits}f".format(this)
+    private fun Double.format(digits: Int) = "%.${digits}f".format(this)
+    private val _Sides = 2
     //------------------------------------------------------------------------------------------------------------------
     override fun Solve() {
         //  Prepare cards
@@ -40,9 +40,9 @@ class CSolver_7 : CSolverBase() {
         //  Generate random number
         (1..10000).forEach {
             val randomCard = GenerateRandom(cards.size)
-            val randomSide = GenerateRandom(2)
+            val randomSide = TSide.getByValue(GenerateRandom(_Sides))
             val extractedCard = cards[randomCard]
-            val extractedColor = extractedCard.selectSide(TSide.getByValue(randomSide))
+            val extractedColor = extractedCard.selectSide(randomSide)
 
             if(extractedColor == TColor.RED) {
                 //  Let's see other face card :-)
