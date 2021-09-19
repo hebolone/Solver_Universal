@@ -22,7 +22,8 @@ fun main() {
         FactoryProvider.TSolver.PROBLEM_4,
         FactoryProvider.TSolver.PROBLEM_5,
         FactoryProvider.TSolver.PROBLEM_6,
-        FactoryProvider.TSolver.PROBLEM_7
+        FactoryProvider.TSolver.PROBLEM_7,
+        FactoryProvider.TSolver.PROBLEM_8
     )
 
     mm.run {
