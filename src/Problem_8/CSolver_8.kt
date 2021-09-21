@@ -8,7 +8,7 @@ class CSolver_8 : CSolverBase() {
         (1..100).forEach {
             i -> run {
                 result += (if(isEven(i)) -1 else 1)*(i * i)
-                if(Options.ShowAllSteps)
+                if(GetStepsVisible())
                     println("$i -> $result")
             }
         }
