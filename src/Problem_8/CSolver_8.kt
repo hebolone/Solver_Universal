@@ -7,7 +7,7 @@ class CSolver_8 : CSolverBase() {
         var result = 0
         (1..100).forEach {
             i -> run {
-                result += (if(isEven(i)) -1 else 1)*(i * i)
+                result += (if(isEven(i)) -1 else 1) * i * i
                 if(GetStepsVisible())
                     println("$i -> $result")
             }
